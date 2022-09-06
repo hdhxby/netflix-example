@@ -1,0 +1,10 @@
+feign:
+#    hystrix:
+#        enabled: false
+    client: # org.springframework.cloud.openfeign.FeignClientProperties
+        default: # org.springframework.cloud.openfeign.FeignClientProperties.FeignClientConfiguration
+            connectTimeout: 1000 # 链接超时, 没有默认值, 也没有生效
+            readTimeout: 1000 # 读取超时, 没有默认值, 也没有生效
+        world: # org.springframework.cloud.openfeign.FeignClientProperties.FeignClientConfiguration
+            connectTimeout: 1000 # 链接超时, 没有默认值, 也没有生效
+            readTimeout: 1000 # 读取超时, 没有默认值, 也没有生效

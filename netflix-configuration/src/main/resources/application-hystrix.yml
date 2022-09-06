@@ -1,0 +1,42 @@
+# 动态代理
+feign:
+    hystrix:
+        enabled: true # 打开hystrix# 动态代理
+# 限流,熔断,降级
+hystrix: # HystrixCommandProperties
+    command:
+        default:
+            metrics:
+                rollingStats:
+                    timeInMilliseconds:  10000 # 默认10S为单位统计
+                rollingPercentile:
+                    enabled: true # 默认true
+                    timeInMilliseconds: 60000 # 默认60秒
+            circuitBreaker:
+                enabled: true # 是否打开断路器, 默认打开
+                requestVolumeThreshold: 20 # 默认20个请求,metrics.rollingStats.timeInMilliseconds,10秒内20个请求以上,才会应用熔断机制
+                errorThresholdPercentage: 50 # 默认50%,搭配上面的配置,10秒内20个请求以上,，搭配metrics.rollingPercentile.bucketSize，60秒内50%的错误,才会应用熔断机制
+                sleepWindowInMilliseconds: 5000 # 默认5S,熔断后多久允许尝试恢复
+            execution:
+                timeout:
+                    enabled: true # 超时机制,默认打开
+                isolation:
+                    strategy: THREAD # 默认THREAD
+                    thread:
+                        timeoutInMilliseconds: 30000 # 超时时间,默认1秒
+                        interruptOnTimeout: true # 默认true
+                    semaphore:
+                        maxConcurrentRequests: 10 # 默认10
+            fallback:
+                enabled: true # 默认true
+                isolation:
+                    semaphore:
+                        maxConcurrentRequests: 10 # 默认10
+    threadpool: # HystrixThreadPoolProperties
+        defalult:
+            allowMaximumSizeToDivergeFromCoreSize: false # 动态扩容,默认false
+            keepAliveTimeMinutes: 1 # 存活时间, 默认1
+            maximumSize: 10 # 线程池最大大小, 默认10
+            coreSize: 10 # 线程池初始大小, 默认10
+            maxQueueSize: -1 # 队列最大大小, 默认-1
+            queueSizeRejectionThreshold: 5 # 默认5

@@ -1,0 +1,6 @@
+#@see org.springframework.boot.ansi.AnsiOutput
+#@see org.springframework.boot.context.config.AnsiOutputApplicationListener
+spring:
+    output:
+        ansi:
+            enabled: always

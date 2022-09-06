@@ -1,0 +1,20 @@
+spring:
+    main:
+        allow-bean-definition-overriding: true
+    profiles:
+        include:
+            - config
+            - logging
+            - datasource
+    cloud:
+        alibaba:
+            seata:
+                tx-service-group: my_test_tx_group
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        health:
+            show-details: ALWAYS
