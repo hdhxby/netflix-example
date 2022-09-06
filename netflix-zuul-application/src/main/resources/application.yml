@@ -1,105 +1,32 @@
 server:
-    port: 8443
+  port: 8443
 
 spring:
-    application:
-        name: zuul
+  application:
+    name: zuul
 zuul: # ZuulProperties
-    debug:
-        request: true # 是否debug @see DynamicPropertyFactory
-        parameter: debug # 请求url中的debug标志 @see DynamicPropertyFactory
-    include-debug-header: true # SendResponseFilter会用到
-    ribbon:
-        eager-load:
-            enabled: false # 预加载, 会初始化ZuulRouteApplicationContextInitializer
-    retryable: true # 重试
-    routes: # 路由 Map<String, ZuulRoute>
-        auth: #
-            path: /api/auth/**
-            serviceId: auth
-            stripPrefix: false
-        cart:
-            path: /api/cart/**
-            serviceId: cart
-            stripPrefix: false
-        comment:
-            path: /api/comment/**
-            serviceId: comment
-            stripPrefix: false
-        commodity:
-            path: /api/commodity/**
-            serviceId: commodity
-            stripPrefix: false
-        customer:
-            path: /api/customer/**
-            serviceId: customer
-            stripPrefix: false
-        eureka:
-            path: /eureka/**
-            url: http://localhost:8761
-            stripPrefix: false
-        finance:
-            path: /api/finance/**
-            serviceId: finance
-            stripPrefix: false
-        inventory:
-            path: /api/inventory/**
-            serviceId: inventory
-            stripPrefix: false
-        logistics:
-            path: /api/logistics/**
-            serviceId: logistics
-            stripPrefix: false
-        membership:
-            path: /api/membership/**
-            serviceId: membership
-            stripPrefix: false
-        order:
-            path: /api/order/**
-            serviceId: order
-            stripPrefix: false
-        pay:
-            path: /api/pay/**
-            serviceId: pay
-            stripPrefix: false
-        promotion:
-            path: /api/promotion/**
-            serviceId: promotion
-            stripPrefix: false
-        purchase:
-            path: /api/purchase/**
-            serviceId: purchase
-            stripPrefix: false
-        schedule:
-            path: /api/schedule/**
-            serviceId: schedule
-            stripPrefix: false
-        wms:
-            path: /api/wms/**
-            serviceId: wms
-            stripPrefix: false
-        reliable:
-            path: /api/reliable/**
-            serviceId: reliable
-            stripPrefix: false
-        offort:
-            path: /api/offort/**
-            serviceId: offort
-            stripPrefix: false
-        # 测试代码
-        hello:
-            path: /api/hello/**
-            serviceId: hello
-            stripPrefix: false
-        world:
-            path: /api/world/**
-            serviceId: world
-            stripPrefix: false
+  debug:
+    request: true # 是否debug @see DynamicPropertyFactory
+    parameter: debug # 请求url中的debug标志 @see DynamicPropertyFactory
+  include-debug-header: true # SendResponseFilter会用到
+  ribbon:
+    eager-load:
+      enabled: false # 预加载, 会初始化ZuulRouteApplicationContextInitializer
+  retryable: true # 重试
+  routes: # 路由 Map<String, ZuulRoute>
+    hello:
+      path: /api/hello/**
+      serviceId: hello
+      stripPrefix: false
+    world:
+      path: /api/world/**
+      serviceId: world
+      stripPrefix: false
 
 # 负载均衡
 ribbon: # TODO AbstractRibbonCommand里面,具体分析
-    ConnectTimeout: 30000 # 连接超时
-    ReadTimeout: 30000 # 读取超时
-    OkToRetryOnAllOperations: true
-    MaxAutoRetries: 1 # 其他机器重试次数
-    MaxAutoRetriesNextServer: 3 # 故障机器重试次数
+  ConnectTimeout: 30000 # 连接超时
+  ReadTimeout: 30000 # 读取超时
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 1 # 其他机器重试次数
+  MaxAutoRetriesNextServer: 3 # 故障机器重试次数

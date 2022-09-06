@@ -15,6 +15,6 @@ eureka: # 注册中心
         register-with-eureka: false # 注册
         registry-fetch-interval-seconds: 30 # 拉取注册表间隔
         service-url: # 注册中心url
-            defaultZone: http://peer1:${server.port}/eureka/ # 默认区
+            defaultZone: http://peer1:${server.port}/eureka/ # 默认区/Users/lixiaobin/git/hdhxby/netflix-example/netflix-zuul-application/pom.xml
     server: # 服务端
         enable-self-preservation: false #关闭自我保护
