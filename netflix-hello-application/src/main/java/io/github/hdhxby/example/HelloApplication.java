@@ -16,12 +16,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableHystrix
 @EnableFeignClients
 @EnableDiscoveryClient
-//@SpringBootApplication
 @SpringCloudApplication
-public class NetflixHelloApplication {
+public class HelloApplication {
 
     public static void main(String[] args) {
-        SpringApplication springApplication = new SpringApplication(NetflixHelloApplication.class);
+        SpringApplication springApplication = new SpringApplication(HelloApplication.class);
         springApplication.setHeadless(false);
         springApplication.run(args);
     }

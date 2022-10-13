@@ -22,11 +22,3 @@ zuul: # ZuulProperties
       path: /api/world/**
       serviceId: world
       stripPrefix: false
-
-# 负载均衡
-ribbon: # TODO AbstractRibbonCommand里面,具体分析
-  ConnectTimeout: 30000 # 连接超时
-  ReadTimeout: 30000 # 读取超时
-  OkToRetryOnAllOperations: true
-  MaxAutoRetries: 1 # 其他机器重试次数
-  MaxAutoRetriesNextServer: 3 # 故障机器重试次数

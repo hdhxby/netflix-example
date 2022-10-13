@@ -15,7 +15,7 @@ public class FallBackCommandkTest {
                 .Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("exception")) ) {
             @Override
             protected Object run() throws Exception {
-                int i = 1/0;
+//                int i = 1/0;
                 return "run";
             }
 
@@ -33,12 +33,12 @@ public class FallBackCommandkTest {
             assertEquals("run", new HystrixCommand(HystrixCommand
                     .Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("threadpoll"))
                     .andThreadPoolPropertiesDefaults(HystrixThreadPoolProperties.Setter()
-                            .withCoreSize(1)
-                            .withQueueSizeRejectionThreshold(1))) {
+                            .withCoreSize(2)
+                            .withQueueSizeRejectionThreshold(2))) {
                 @Override
                 protected Object run() throws Exception {
                     countDownLatch.countDown();
-                    Thread.sleep(1000l);
+                    Thread.sleep(3000l);
                     return "run";
                 }
 
@@ -53,8 +53,8 @@ public class FallBackCommandkTest {
         assertEquals("fallback",new HystrixCommand(HystrixCommand
                 .Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("threadpoll"))
                 .andThreadPoolPropertiesDefaults(HystrixThreadPoolProperties.Setter()
-                        .withCoreSize(1)
-                        .withQueueSizeRejectionThreshold(1))) {
+                        .withCoreSize(2)
+                        .withQueueSizeRejectionThreshold(2))) {
             @Override
             protected Object run() throws Exception {
                 return "run";

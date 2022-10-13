@@ -1,4 +1,4 @@
-package github.hdhxby.example;
+package io.github.hdhxby.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

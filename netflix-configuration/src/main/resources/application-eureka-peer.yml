@@ -21,4 +21,6 @@ eureka: # 注册中心 EurekaServerBootstrap初始化时会获取environment,dat
         renewalPercentThreshold: 0.85 # 续约阈值(百分比)
         responseCacheUpdateIntervalMs: 30000 # 响应缓存更新间隔(毫秒)
         responseCacheAutoExpirationInSeconds: 180 # 响应缓存自动超时时间(秒)
-
+        deltaRetentionTimerIntervalInMs: 30000 # 增量保留间隔（毫秒）
+        retentionTimeInMSInDeltaQueue: 180000 # 增量队列中的保留时间(毫秒)
+        peerEurekaNodesUpdateIntervalMs: 600000 # 节点更新间隔(毫秒)

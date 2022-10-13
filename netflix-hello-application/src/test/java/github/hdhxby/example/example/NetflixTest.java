@@ -1,6 +1,6 @@
 package github.hdhxby.example.example;
 
-import io.github.hdhxby.example.NetflixHelloApplication;
+import io.github.hdhxby.example.HelloApplication;
 import static org.junit.Assert.*;
 
 import io.github.hdhxby.example.feign.WorldClient;
@@ -63,7 +63,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {NetflixHelloApplication.class})
+@SpringBootTest(classes = {HelloApplication.class})
 public class NetflixTest {
 
     String SERVICE_ID = "world";

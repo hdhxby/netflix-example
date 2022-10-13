@@ -13,10 +13,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient
 @SpringCloudApplication
-public class NetflixWorldApplication {
+public class WorldApplication {
 
     public static void main(String[] args) {
-        SpringApplication springApplication = new SpringApplication(NetflixWorldApplication.class);
+        SpringApplication springApplication = new SpringApplication(WorldApplication.class);
         springApplication.setHeadless(false);
         springApplication.run(args);
     }

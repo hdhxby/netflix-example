@@ -1,4 +1,4 @@
-package github.hdhxby.example.zuul;
+package io.github.hdhxby.example.zuul;
 
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
 import org.springframework.http.HttpHeaders;
@@ -10,6 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 /**
  * 返回错误原因
@@ -36,7 +37,9 @@ public class ZuulFallbackProvider implements FallbackProvider {
 
             @Override
             public String getStatusText() throws IOException {
-                return cause.getMessage();
+                return Optional.ofNullable(cause.getMessage()).orElseGet(() -> {
+                    return cause.getCause().getMessage();
+                });
             }
 
             @Override

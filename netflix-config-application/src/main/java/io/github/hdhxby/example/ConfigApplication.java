@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
- * 网关(zuul)
+ * 配置
  * @author lixiaobin
  * @version 2.0.0
  * @since 2.0.0

@@ -2,4 +2,4 @@ spring:
     profiles:
         include:
             - commons
-            - eureka-peer
+            - eureka

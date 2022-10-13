@@ -4,12 +4,3 @@ server:
 spring:
     application:
         name: world
-
-management:
-    endpoints:
-        web:
-            exposure:
-                include: "*"
-    endpoint:
-        health:
-            show-details: ALWAYS

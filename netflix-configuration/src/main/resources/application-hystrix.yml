@@ -23,7 +23,7 @@ hystrix: # HystrixCommandProperties
                 isolation:
                     strategy: THREAD # 默认THREAD
                     thread:
-                        timeoutInMilliseconds: 30000 # 超时时间,默认1秒
+                        timeoutInMilliseconds: 15000 # 超时时间,默认1秒
                         interruptOnTimeout: true # 默认true
                     semaphore:
                         maxConcurrentRequests: 10 # 默认10

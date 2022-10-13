@@ -26,6 +26,20 @@ public class HelloResourceImpl {
 //    @Value("${foo}")
     private String foo;
 
+    @GetMapping("/hello")
+    public ResponseEntity<String> hello(@RequestParam(value = "name",defaultValue = "world",required = false) String name, @RequestParam(value = "millis",defaultValue = "0",required = false) Long millis){
+        if(millis < 0) {
+            int i = 1/0;
+        } else if(millis > 0){
+            try {
+                Thread.sleep(millis);
+            } catch (InterruptedException e) {
+                // nothing.
+            }
+        }
+        return ResponseEntity.ok(String.format("hello %s,sleep %d millis.", name, millis));
+    }
+
     @GetMapping("/hello/rest")
     public ResponseEntity<String> rest(@RequestParam(value = "name",defaultValue = "world",required = false) String name, @RequestParam(value = "millis",defaultValue = "0",required = false) Long millis){
         return restTemplate.getForEntity(URI.create(String.format(WORD_API +"?name=%s&millis=%d",name,millis)),String.class);

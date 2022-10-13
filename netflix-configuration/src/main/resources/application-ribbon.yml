@@ -1,14 +1,14 @@
 # 负载均衡
 ribbon: # IClientConfig, RequestSpecificRetryHandler 创建 RequestSpecificRetryHandler 时会使用对应的值
-    ConnectTimeout: 3000 # 连接超时, 默认1000
-    ReadTimeout: 3000 # 读取超时, 默认1000
+    ConnectTimeout: 30000 # 连接超时, 默认1000
+    ReadTimeout: 30000 # 读取超时, 默认1000
     OkToRetryOnAllOperations: true # 重试, 默认false
     MaxAutoRetries: 1 # 故障机器重试次数, 默认0
-    MaxAutoRetriesNextServer: 3 # 其他机器重试次数, 默认1
+    MaxAutoRetriesNextServer: 1 # 其他机器重试次数, 默认1
 world:
     ribbon: # IClientConfig, RequestSpecificRetryHandler 创建 RequestSpecificRetryHandler 时会使用对应的值
         ConnectTimeout: 3000 # 连接超时 默认1000
         ReadTimeout: 3000 # 读取超时 默认1000
         OkToRetryOnAllOperations: true # 重试, 默认false
         MaxAutoRetries: 1 # 故障机器重试次数, 默认0
-        MaxAutoRetriesNextServer: 3 # 其他机器重试次数, 默认1
+        MaxAutoRetriesNextServer: 1 # 其他机器重试次数, 默认1

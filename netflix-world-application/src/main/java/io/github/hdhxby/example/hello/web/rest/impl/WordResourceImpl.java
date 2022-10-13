@@ -13,7 +13,9 @@ public class WordResourceImpl implements WorldResource {
     @GetMapping("/api/world")
     @Override
     public ResponseEntity<String> world(@RequestParam(value = "name",defaultValue = "world",required = false) String name,@RequestParam(value = "millis",defaultValue = "0",required = false) Long millis){
-        if(millis !=0){
+        if(millis < 0) {
+            int i = 1/0;
+        } else if(millis > 0){
             try {
                 Thread.sleep(millis);
             } catch (InterruptedException e) {
