@@ -1,6 +1,8 @@
 # netflix zuul
 
-> 网关
 
+JGitEnvironmentRepository
 
-RibbonRoutingFilter
+NativeEnvironmentRepository
+
+EnvironmentController

@@ -2,10 +2,6 @@ server:
     port: 8082
 
 spring:
-    profiles:
-        include:
-            - commons
-            - eureka
     application:
         name: world
     cloud:
