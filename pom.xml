@@ -22,12 +22,13 @@
     <properties>
         <!-- Build properties -->
 <!--        <maven.version>3.3.9</maven.version>-->
-        <java.version>17</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <!-- Dependency versions -->
         <spring-boot.version>2.3.11.RELEASE</spring-boot.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <skywalking.version>8.13.0</skywalking.version>
         <lombok.version>1.18.20</lombok.version>
         <!-- Plugin versions -->
         <jib-maven-plugin.version>3.3.1</jib-maven-plugin.version>
@@ -57,6 +58,11 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.skywalking</groupId>
+                <artifactId>apm-toolkit-trace</artifactId>
+                <version>${skywalking.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

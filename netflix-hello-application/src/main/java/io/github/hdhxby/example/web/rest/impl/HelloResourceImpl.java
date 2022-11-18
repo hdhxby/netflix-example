@@ -1,7 +1,11 @@
 package io.github.hdhxby.example.web.rest.impl;
 
 import io.github.hdhxby.example.feign.WorldClient;
+import org.apache.skywalking.apm.toolkit.trace.Trace;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,8 @@ import java.net.URI;
 @RequestMapping("/api")
 @RestController
 public class HelloResourceImpl {
+
+    private static final Logger logger = LoggerFactory.getLogger(HelloResourceImpl.class);
 
     private static final String WORD_API = "http://world/api/world";
 
@@ -45,7 +51,7 @@ public class HelloResourceImpl {
         return restTemplate.getForEntity(URI.create(String.format(WORD_API +"?name=%s&millis=%d",name,millis)),String.class);
     }
 
-
+    @Trace
     @GetMapping("/hello/feign")
     public ResponseEntity<String> client(@RequestParam(value = "name",defaultValue = "world",required = false) String name,@RequestParam(value = "millis",defaultValue = "0",required = false) Long millis){
         return worldClient.world(name,millis);
@@ -59,6 +65,7 @@ public class HelloResourceImpl {
 
     @GetMapping("/hello/foo")
     public ResponseEntity<String> foo(){
+        logger.debug("hello");
         return ResponseEntity.ok(foo);
     }
 }

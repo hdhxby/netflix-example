@@ -2,6 +2,7 @@ package io.github.hdhxby.example.hello.web.rest.impl;
 
 import io.github.hdhxby.example.hello.web.rest.FooComponent;
 import io.github.hdhxby.example.hello.web.rest.WorldResource;
+import org.apache.skywalking.apm.toolkit.trace.Trace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class WordResourceImpl implements WorldResource {
     @Autowired
     private FooComponent fooComponent;
 
+    @Trace
     @GetMapping("/api/world")
     @Override
     public ResponseEntity<String> world(@RequestParam(value = "name",defaultValue = "world",required = false) String name,@RequestParam(value = "millis",defaultValue = "0",required = false) Long millis){
