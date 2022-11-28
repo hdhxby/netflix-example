@@ -1,3 +1,0 @@
-spring:
-    zipkin:
-        baseUrl: http://lixb-e-p1.grandsoft.com.cn:9411

@@ -1,0 +1,22 @@
+version: '3'
+services:
+  configserver:
+    image: netflix-example-config-server
+    ports:
+      - 8888:8888
+  peer1:
+    image: netflix-example-eureka
+    ports:
+      - 8761:8761
+  turbine:
+    image: netflix-example-turbine
+    ports:
+      - 9999:9999
+  hello:
+    image: netflix-example-hello
+  world:
+    image: netflix-example-world
+  zuul:
+    image: netflix-example-zuul
+    ports:
+      - 8080:8080

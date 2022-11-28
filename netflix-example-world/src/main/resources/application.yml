@@ -1,0 +1,22 @@
+server:
+    port: 8082
+
+spring:
+    profiles:
+        include:
+            - eureka
+    application:
+        name: world
+    cloud:
+        config:
+            label: main
+            profile: dev
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        health:
+            show-details: ALWAYS
