@@ -30,19 +30,11 @@
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <springfox.version>3.0.0</springfox.version>
         <skywalking.version>8.13.0</skywalking.version>
-        <lombok.version>1.18.20</lombok.version>
         <!-- Plugin versions -->
         <jib-maven-plugin.version>3.3.1</jib-maven-plugin.version>
         <jib-maven-plugin.image>docker://openjdk:17</jib-maven-plugin.image>
         <jib-maven-plugin.architecture>arm64</jib-maven-plugin.architecture>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
     <dependencyManagement>
         <dependencies>
             <!-- 三方库 -->
@@ -73,29 +65,6 @@
         </dependencies>
     </dependencyManagement>
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>jib-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>
